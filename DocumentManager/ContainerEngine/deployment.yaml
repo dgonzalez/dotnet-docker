@@ -1,0 +1,16 @@
+﻿apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: document-manager
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: document-manager
+    spec:
+      containers:
+      - name: aggregator-service
+        image: eu.gcr.io/david-on-microservices/document-manager:latest
+        ports:
+        - containerPort: 5000

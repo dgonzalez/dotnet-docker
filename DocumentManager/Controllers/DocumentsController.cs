@@ -17,7 +17,7 @@ namespace DocumentManager.Controllers
         [HttpGet]
         public ArrayList Get()
         {
-            string connectionString = @"server=127.0.0.1;" +
+            string connectionString = @"server=35.195.19.66;" +
                  @"uid=root;" +
                  @"pwd=root;" +
                  @"database=documents_db;";

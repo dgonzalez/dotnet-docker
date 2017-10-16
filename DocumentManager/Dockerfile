@@ -5,8 +5,7 @@ FROM microsoft/dotnet
 WORKDIR /app
 COPY . .
  
-# Expose port 80 for the Web API traffic
-ENV ASPNETCORE_URLS http://+:5000
+#ENV ASPNETCORE_URLS http://*:5000
 EXPOSE 5000
  
 # Restore the necessary packages

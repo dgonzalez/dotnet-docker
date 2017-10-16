@@ -1,0 +1,12 @@
+﻿---
+kind: Service
+apiVersion: v1
+metadata:
+  name: document-manager-lb
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: document-manager
+  type: LoadBalancer
