@@ -1,0 +1,21 @@
+runtime: custom
+env: flex
+service: default
+resources:
+   cpu: 2
+   memory_gb: 8
+
+liveness_check:
+   path: '/api/documents'
+   check_interval_sec: 10
+   timeout_sec: 5
+   failure_threshold: 2
+   success_threshold: 2
+
+automatic_scaling:
+   min_num_instances: 3
+   max_num_instances: 100
+   cpu_utilization:
+      target_utilization: 0.4
+env_variables:
+  MY_VARIABLE: 'This can be anything'

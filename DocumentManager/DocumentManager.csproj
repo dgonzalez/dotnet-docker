@@ -9,6 +9,7 @@
     <Folder Include="Controllers\Domain\" />
     <Folder Include="Models\" />
     <Folder Include="ContainerEngine\" />
+    <Folder Include="ui\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
     <PackageReference Include="System.Security.Permissions" Version="4.4.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
     <PackageReference Include="Pomelo.Data.MySql" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

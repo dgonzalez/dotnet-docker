@@ -19,7 +19,8 @@ namespace DocumentManager
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                   .UseUrls("http://0.0.0.0:5000")
+                   .UseUrls("http://0.0.0.0:8080")
+                   .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
     }
