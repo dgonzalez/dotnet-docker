@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Xml;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +23,11 @@ namespace DocumentManager
             WebHost.CreateDefaultBuilder(args)
                    .UseUrls("http://0.0.0.0:8080")
                    .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Startup>()
+                   .UseStartup<Startup>()
+                   .ConfigureLogging((hostingContext, logging) => {
+                      logging.AddConsole();
+                   })
+
                 .Build();
     }
 }

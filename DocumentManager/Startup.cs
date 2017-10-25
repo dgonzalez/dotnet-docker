@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -23,7 +25,10 @@ namespace DocumentManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new RequireHttpsAttribute());
+            });
             services.AddMvc();
         }
 
@@ -34,6 +39,8 @@ namespace DocumentManager
             {
                 app.UseDeveloperExceptionPage();
             }
+            var options = new RewriteOptions().AddRedirectToHttps();
+            app.UseRewriter(options);
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
